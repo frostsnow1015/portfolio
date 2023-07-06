@@ -1,0 +1,24 @@
+{
+  "title": "Custom Scrollbar",
+  "description": "define your own custom scroll bar",
+  "published": true,
+  "date": "2022-07-22",
+  "stacks": [
+    "css",
+    "chakra-ui"
+  ],
+  "body": {
+    "raw": "\n## CSS\n\n```css\n::-webkit-scrollbar {\n  width: 0.75rem;\n  height: 0.75rem;\n  background-color: blue;\n}\n\n::-webkit-scrollbar-thumb {\n  border-radius: 20px;\n  background-color: gray;\n}\n\n/** firefox **/\nhtml {\n  scrollbar-width: thin;\n  scrollbar-color: blue;\n}\n```\n\n## References\n\n- MDN\n  - [https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar#browser_compatibility](https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar#browser_compatibility)\n  - [https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scrollbars#browser_compatibility](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scrollbars#browser_compatibility)\n- W3Schools: [https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp](https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp)\n- [sznm.dev](http://sznm.dev) - chakra-ui implementation\n  - [https://github.com/sozonome/sznm.dev/commit/f967221e40c7d680eb25ca4944ede4f5def2b628](https://github.com/sozonome/sznm.dev/commit/f967221e40c7d680eb25ca4944ede4f5def2b628)\n  - [https://github.com/sozonome/sznm.dev/commit/76c3ce6895b6de5b0a0d4195378cf68cde269054](https://github.com/sozonome/sznm.dev/commit/76c3ce6895b6de5b0a0d4195378cf68cde269054)\n",
+    "html": "<h2>CSS</h2>\n<pre><code class=\"language-css\">::-webkit-scrollbar {\n  width: 0.75rem;\n  height: 0.75rem;\n  background-color: blue;\n}\n\n::-webkit-scrollbar-thumb {\n  border-radius: 20px;\n  background-color: gray;\n}\n\n/** firefox **/\nhtml {\n  scrollbar-width: thin;\n  scrollbar-color: blue;\n}\n</code></pre>\n<h2>References</h2>\n<ul>\n<li>MDN\n<ul>\n<li><a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar#browser_compatibility\">https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar#browser_compatibility</a></li>\n<li><a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scrollbars#browser_compatibility\">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scrollbars#browser_compatibility</a></li>\n</ul>\n</li>\n<li>W3Schools: <a href=\"https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp\">https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp</a></li>\n<li><a href=\"http://sznm.dev\">sznm.dev</a> - chakra-ui implementation\n<ul>\n<li><a href=\"https://github.com/sozonome/sznm.dev/commit/f967221e40c7d680eb25ca4944ede4f5def2b628\">https://github.com/sozonome/sznm.dev/commit/f967221e40c7d680eb25ca4944ede4f5def2b628</a></li>\n<li><a href=\"https://github.com/sozonome/sznm.dev/commit/76c3ce6895b6de5b0a0d4195378cf68cde269054\">https://github.com/sozonome/sznm.dev/commit/76c3ce6895b6de5b0a0d4195378cf68cde269054</a></li>\n</ul>\n</li>\n</ul>"
+  },
+  "_id": "snippets/custom-scroll-bar.md",
+  "_raw": {
+    "sourceFilePath": "snippets/custom-scroll-bar.md",
+    "sourceFileName": "custom-scroll-bar.md",
+    "sourceFileDir": "snippets",
+    "contentType": "markdown",
+    "flattenedPath": "snippets/custom-scroll-bar"
+  },
+  "type": "Snippet",
+  "id": "custom-scroll-bar"
+}

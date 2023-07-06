@@ -1,0 +1,24 @@
+{
+  "title": "Data Fetching",
+  "description": "Fetch data with ease",
+  "published": true,
+  "date": "2022-10-24",
+  "stacks": [
+    "http-client",
+    "data-fetching"
+  ],
+  "body": {
+    "raw": "\n## Fetcher Utility\n\n> install [axios](https://axios-http.com/)\n\n```bash\npnpm add axios\n```\n\n> add fetcher utility for GET\n\n```ts\nimport axios from \"axios\";\n\ntype FetcherArgs = {\n  url: string;\n  params?: any;\n};\n\nexport const fetcher = <ResType>({ url, params }: FetcherArgs) =>\n  axios.get<ResType>(url, { params }).then((res) => res.data);\n```\n\n## Data Hook with SWR\n\n> install [SWR](https://swr.vercel.app)\n\n```bash\npnpm add swr\n```\n\n> add swr hook utility\n\n```ts\nimport useSWR from \"swr\";\n\ntype UseAppSWRArgs<ResType> = {\n  url: string;\n  params?: any;\n  fallbackData?: ResType;\n  isReady?: boolean;\n};\n\nexport const useAppSWR = <ResType, ErrorType = any>({\n  url,\n  params,\n  fallbackData,\n  isReady = true,\n}: UseAppSWRArgs<ResType>) => {\n  const { data, error, mutate } = useSWR<ResType, ErrorType>(\n    isReady ? { url, params } : null,\n    fetcher,\n    {\n      fallbackData,\n    }\n  );\n\n  return {\n    data,\n    isLoading: !error && !data && isReady,\n    isError: error,\n    mutate,\n  };\n};\n```\n\n> add data hook\n\n```ts\n// useMovieData.ts\nexport const useMovieData = (params?: any) =>\n  useAppSWR({\n    url: \"https://some-api-url.com/api/movies\",\n    params,\n  });\n```\n\n> call the data hook in the component\n\n```tsx\n// SomeComponent.tsx\n\nconst SomeComponent = () => {\n  const { data, isLoading } = useMovieData();\n\n  if (isLoading) {\n    return <p>Loading...</p>;\n  }\n\n  return (\n    <div>\n      {data.results.map((item) => (\n        <p>{item.title}</p>\n      ))}\n    </div>\n  );\n};\n```\n",
+    "html": "<h2>Fetcher Utility</h2>\n<blockquote>\n<p>install <a href=\"https://axios-http.com/\">axios</a></p>\n</blockquote>\n<pre><code class=\"language-bash\">pnpm add axios\n</code></pre>\n<blockquote>\n<p>add fetcher utility for GET</p>\n</blockquote>\n<pre><code class=\"language-ts\">import axios from \"axios\";\n\ntype FetcherArgs = {\n  url: string;\n  params?: any;\n};\n\nexport const fetcher = &#x3C;ResType>({ url, params }: FetcherArgs) =>\n  axios.get&#x3C;ResType>(url, { params }).then((res) => res.data);\n</code></pre>\n<h2>Data Hook with SWR</h2>\n<blockquote>\n<p>install <a href=\"https://swr.vercel.app\">SWR</a></p>\n</blockquote>\n<pre><code class=\"language-bash\">pnpm add swr\n</code></pre>\n<blockquote>\n<p>add swr hook utility</p>\n</blockquote>\n<pre><code class=\"language-ts\">import useSWR from \"swr\";\n\ntype UseAppSWRArgs&#x3C;ResType> = {\n  url: string;\n  params?: any;\n  fallbackData?: ResType;\n  isReady?: boolean;\n};\n\nexport const useAppSWR = &#x3C;ResType, ErrorType = any>({\n  url,\n  params,\n  fallbackData,\n  isReady = true,\n}: UseAppSWRArgs&#x3C;ResType>) => {\n  const { data, error, mutate } = useSWR&#x3C;ResType, ErrorType>(\n    isReady ? { url, params } : null,\n    fetcher,\n    {\n      fallbackData,\n    }\n  );\n\n  return {\n    data,\n    isLoading: !error &#x26;&#x26; !data &#x26;&#x26; isReady,\n    isError: error,\n    mutate,\n  };\n};\n</code></pre>\n<blockquote>\n<p>add data hook</p>\n</blockquote>\n<pre><code class=\"language-ts\">// useMovieData.ts\nexport const useMovieData = (params?: any) =>\n  useAppSWR({\n    url: \"https://some-api-url.com/api/movies\",\n    params,\n  });\n</code></pre>\n<blockquote>\n<p>call the data hook in the component</p>\n</blockquote>\n<pre><code class=\"language-tsx\">// SomeComponent.tsx\n\nconst SomeComponent = () => {\n  const { data, isLoading } = useMovieData();\n\n  if (isLoading) {\n    return &#x3C;p>Loading...&#x3C;/p>;\n  }\n\n  return (\n    &#x3C;div>\n      {data.results.map((item) => (\n        &#x3C;p>{item.title}&#x3C;/p>\n      ))}\n    &#x3C;/div>\n  );\n};\n</code></pre>"
+  },
+  "_id": "snippets/data-fetching.md",
+  "_raw": {
+    "sourceFilePath": "snippets/data-fetching.md",
+    "sourceFileName": "data-fetching.md",
+    "sourceFileDir": "snippets",
+    "contentType": "markdown",
+    "flattenedPath": "snippets/data-fetching"
+  },
+  "type": "Snippet",
+  "id": "data-fetching"
+}
